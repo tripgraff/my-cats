@@ -1,0 +1,22 @@
+{
+  "cats": [
+    {
+      "id": 1,
+      "name": "Sam",
+      "img_link": "./img/arrogant.png",
+      "age": 2,
+      "rate": 10,
+      "description": "Просто кот ^^",
+      "favorite": false
+    },
+    {
+      "id": 2,
+      "name": "Bonya",
+      "img_link": "./img/cute.png",
+      "age": 4,
+      "rate": 10,
+      "description": "Моя любимая котейка",
+      "favorite": true
+    }
+  ]
+}
