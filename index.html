@@ -30,7 +30,7 @@
             </div>
         </div> -->
     </main>
-    <div class="add__btn">+</div>
+    <div class="add__btn"><span>+</span></div>
     <div class="popup__wrapper">
         <div class="popup" data-type="card">
             <div class="popup__close">+</div>
@@ -40,6 +40,40 @@
             <div class="popup__close">+</div>
             <div class="popup__content">
                 <h2>Добавить кота</h2>
+                <form>
+                    <div class="row">
+                        <label for="i1">Имя котика</label>
+                        <input type="text" id="i1" name="name" required >
+                    </div>
+                    <div class="row">
+                        <label for="i2">Порядковый номер</label>
+                        <input type="number " id="i2" name="id" required min="1">
+                    </div>
+                    <div class="row">
+                        <label for="i3">Ссылка на картинку </label>
+                        <input type="text" id="i3" name="img_link">
+                    </div>
+                    <div class="row">
+                        <label for="i4">Возраст</label>
+                        <input type="number" id="i4" name="age" min="0"
+                        max="100">
+                    </div>
+                    <div class="row">
+                        <label for="i5">Рейтинг </label>
+                        <input type="range" id="i5" name="rate" min="0" max="10" value="10"> <!--сделать ее через  option-->
+                    </div>
+                    <div class="row">
+                        <label for="i6">
+                            <input type="checkbox" id="i6" name="favou rite">
+                            Любимчик
+                        <img src="img/favorite icon.png" alt="favorite"></label>
+                    </div>
+                    <div class="row">
+                        <label for="i7">Описание</label>
+                        <textarea  id="i7" name="description"></textarea>
+                     </div>
+                     <button type="submit">Добавить котика</button>
+                </form>
             </div>
         </div>
     </div>

@@ -24,13 +24,23 @@ btn.addEventListener('click', e => {
     showPopup(Array.from(popupList), 'add')
 });
 
+function closePopup() {
+    popBox.classList.remove('active');
+    popupList.forEach(p => {
+        if (p.classList.contains('active')) {
+            p.classList.remove('active');
+        }
+    })
+}
+
 popBox.addEventListener('click', function(e) {
     if (e.target === this) {
-        popBox.classList.remove('active');
-        popupList.forEach(p => {
-            if (p.classList.contains('active')) {
-                p.classList.remove('active');
-            }
-        })
+        closePopup();
     }
-})
+});
+
+document.addEventListener('keydown', function(e) {
+    if (e.code === 'Escape'){
+        closePopup();
+    }
+});

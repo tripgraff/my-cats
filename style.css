@@ -117,6 +117,7 @@ body {
     border-radius: 50%;
     border: 1px solid silver;
     background-color: #cebebe;
+    /* background-image: url('img/paw\ close.png'); */
     color: #fff;
     font-size: 24px;
     display: flex;
@@ -128,6 +129,8 @@ body {
     cursor: pointer;
     user-select: none;
     transition: all 1s ease;
+    /* background-size: cover; */
+    /* background-position: center; */
 }
 
 .popup__close:hover {
@@ -148,11 +151,13 @@ body {
     position: absolute;
     width: 90px;
     height: 90px;
-    border-radius: 50%;
-    border: 1px solid rgb(205, 205, 205);
-    background-color: #d8d6e1;
+    /* border-radius: 50%; */
+    border-radius: 15px;
+    /* border: 1px solid rgb(205, 205, 205, 0.5); */
+    /* background-color: #d8d6e1; */
+    background-image: url('img/paw.png');
     color: #fff;
-    font-size: 70px;
+    font-size: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -161,9 +166,49 @@ body {
     cursor: pointer;
     user-select: none;
     transition: all 1s ease;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+}
+
+.add__btn span{
+    position: relative;
+    top: 10px;
 }
 
 .add__btn:hover {
     width: 97px;
     height:97px;
+    font-size: 60px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+h2 {
+    margin: 0;
+}
+
+.popup h2 {
+    margin-bottom: 20px;
+}
+
+.row label {
+    display: flex;
+    align-items: center;
+}
+
+.row label img {
+    width: 25px;
+    height: 25px;
+    margin-left: 5px;
 }

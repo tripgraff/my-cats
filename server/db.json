@@ -1,7 +1,7 @@
 {
   "cats": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Sam",
       "img_link": "./img/arrogant.png",
       "age": 2,
@@ -10,7 +10,7 @@
       "favorite": false
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Bonya",
       "img_link": "./img/cute.png",
       "age": 4,
