@@ -1,4 +1,4 @@
-function createCard(data,parent) {
+function createCard(data,parent, arr) {
     const card = document.createElement('div');
     card.className = "card";
     card.setAttribute('data-id', data.id);
@@ -20,6 +20,19 @@ function createCard(data,parent) {
     rate.innerHTML = '<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>'
     
     card.append(pic, name, age, rate)
-
+    card.addEventListener('click', function() {
+        showPopup(arr, 'card');
+    });
     parent.append(card);
+}
+
+function showPopup(list, type, content) {
+    let el = list.filter(el => el.dataset.type === type)[0];
+    // switch (type) {
+    //     case "card":
+    //     case "info":
+    //     case "form":
+    // }
+    el.classList.add('active');
+    el.parentElement.classList.add('active');
 }
