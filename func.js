@@ -36,3 +36,23 @@ function showPopup(list, type, content) {
     el.classList.add('active');
     el.parentElement.classList.add('active');
 }
+
+function addCat(e, api, popupList) {
+    e.preventDefault();
+    let body = {};
+    for (let i = 0; i < e.target.elements.length; i++) {
+        let el = e.target.elements[i];
+        if (el.name) {
+            if (el.type === 'checkbox'){
+                body[el.name] = el.checked;
+            } else if (el.value) {
+                body[el.name] = el.value
+            }
+        }
+    }
+    api.addCat(body)
+        .then(res => res.JSON)
+        .then(data => {
+            showPopup(popupList, 'info', data.message);
+        })
+}

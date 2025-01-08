@@ -212,3 +212,15 @@ h2 {
     height: 25px;
     margin-left: 5px;
 }
+
+.popup__content-user h2 {
+    margin-bottom: 5px;
+    /* font-weight: 25px; */
+    font-size: 24px;
+}
+
+.popup__content-text {
+    font-size: 13px;
+    margin-bottom: 40px;
+    opacity: 0.3;
+}

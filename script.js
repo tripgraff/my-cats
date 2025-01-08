@@ -1,12 +1,13 @@
 import Api from "./api.js";
 
-
-const api = new Api('User');
-
 const container = document.querySelector('.container');
 const btn = document.querySelector('.add__btn');
 const popupList = document.querySelectorAll('.popup');
 const popBox = document.querySelector('.popup__wrapper');
+const addForm = document.forms.add;
+addForm.addEventListener('submit', function(e) {
+    addCat(e, api, Array.from(popupList));
+});
 
 let user = document.cookie;
 if (!user) {
@@ -24,7 +25,11 @@ if (!user) {
     // const newUser = document.getElementById('nickname').value;
     // user = newUser; 
     // user = prompt('Ник ваш', 'tripgraff');
-};
+} else {
+     user = user.split('=')[1];
+}
+
+const api = new Api(user)
 
 
 api.getCats()
