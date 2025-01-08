@@ -37,7 +37,7 @@ function showPopup(list, type, content) {
     el.parentElement.classList.add('active');
 }
 
-function addCat(e, api, popupList) {
+function addCat(e, api, popupList, store) {
     e.preventDefault();
     let body = {};
     for (let i = 0; i < e.target.elements.length; i++) {
@@ -49,10 +49,17 @@ function addCat(e, api, popupList) {
                 body[el.name] = el.value
             }
         }
+        // console.log(fetch(`http://localhost:3000/cats/${e.target.elements.id.value}`))
     }
     api.addCat(body)
         .then(res => res.JSON)
         .then(data => {
-            showPopup(popupList, 'info', data.message);
+            // localStorage.setItem('cat', JSON.stringify(body))
+            createCard(body, document.querySelector('.container'));
+            store.push(body);
+            localStorage.setItem('cats', JSON.stringify(store));
+            e.target.reset();
+            document.querySelector('.popup__wrapper').classList.remove('active');
+            // showPopup(popupList, 'info', data.message);
         })
 }

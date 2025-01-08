@@ -213,6 +213,11 @@ h2 {
     margin-left: 5px;
 }
 
+.row span {
+    font-size: 10px;
+    opacity: 0.3;
+}
+
 .popup__content-user h2 {
     margin-bottom: 5px;
     /* font-weight: 25px; */

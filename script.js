@@ -4,9 +4,15 @@ const container = document.querySelector('.container');
 const btn = document.querySelector('.add__btn');
 const popupList = document.querySelectorAll('.popup');
 const popBox = document.querySelector('.popup__wrapper');
+
+let catsList = localStorage.getItem('cats');
+if (catsList) {
+    catsList = JSON.parse(catsList);
+}
+
 const addForm = document.forms.add;
 addForm.addEventListener('submit', function(e) {
-    addCat(e, api, Array.from(popupList));
+    addCat(e, api, Array.from(popupList), catsList);
 });
 
 let user = document.cookie;
@@ -31,15 +37,20 @@ if (!user) {
 
 const api = new Api(user)
 
-
-api.getCats()
-    .then(res => res.json())
-    .then(data => {
-        console.log(data);
-        data.forEach(cat => {
-            createCard(cat, container, Array.from(popupList));
+if (!catsList){
+    api.getCats()
+        .then(res => res.json())
+        .then(data => {
+            localStorage.setItem('cats', JSON.stringify(data));
+            data.forEach(cat => {
+                createCard(cat, container, Array.from(popupList));
+            });
         });
-    })
+} else {
+    catsList.forEach(cat => {
+        createCard(cat, container, Array.from(popupList));
+    });
+}
 
 
 popupList.forEach(p => {
