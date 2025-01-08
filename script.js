@@ -1,9 +1,33 @@
+import Api from "./api.js";
+
+
+const api = new Api('User');
+
 const container = document.querySelector('.container');
 const btn = document.querySelector('.add__btn');
 const popupList = document.querySelectorAll('.popup');
 const popBox = document.querySelector('.popup__wrapper');
 
-fetch("http://localhost:3000/cats")
+let user = document.cookie;
+if (!user) {
+    showPopup(Array.from(popupList), 'user');
+    const userfForm = document.getElementById('userForm');
+    userfForm.addEventListener('submit', function(event) {
+        // event.preventDefault();
+        const newUser = document.getElementById('nickname').value;
+        user = newUser;
+        console.log(user);
+        document.cookie = `user=${user}`;
+        // const popup = document.querySelector('.popup[data-type="user"]')
+        // popup.style.display = 'none'
+    })
+    // const newUser = document.getElementById('nickname').value;
+    // user = newUser; 
+    // user = prompt('Ник ваш', 'tripgraff');
+};
+
+
+api.getCats()
     .then(res => res.json())
     .then(data => {
         console.log(data);
